@@ -12,4 +12,7 @@ def employee_detail(request, pk):
   # except:
   #   raise Http404
   employee = get_object_or_404(Employees, pk=pk)
-  return HttpResponse(employee)
+  context = {
+    'employee': employee
+  }
+  return render(request,'employee_detail.html',context)
